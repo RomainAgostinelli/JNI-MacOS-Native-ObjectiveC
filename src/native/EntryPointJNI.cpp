@@ -1,14 +1,8 @@
 #include "MacOSNativeApiAdapter.hpp"
 #include "../OSApiAdapter.h"
-#include <iostream>
 #include "data.h"
-//int main(int argc, char * argv[]) {
-//
-//    MacOSNativeApiAdapter pi;
-//    OSVersion v = pi.getVersion();
-//    std::cout << v.major << std::endl;
-//
-//}
+#include <iostream>
+
 JNIEXPORT jobject JNICALL Java_OSApiAdapter_getOsVersion
         (JNIEnv *env, jobject thisObject) 	{
     jclass cls = env->FindClass("OperatingSystemVersion");
