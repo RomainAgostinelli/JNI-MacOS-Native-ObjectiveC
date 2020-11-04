@@ -1,3 +1,11 @@
+/**
+ * This class is a simple POJO used to store a version of OSX.
+ * This implementation follow the  implementation by Apple in Foundation/NSProcessInfo.h.
+ *
+ * @author Romain Agostinelli
+ * @see <a href="https://developer.apple.com/documentation/foundation/nsoperatingsystemversion">NSOperatingSystemVersion</a>
+ * @since 02.11.2020
+ */
 public class OperatingSystemVersion {
     private int major;
     private int minor;
