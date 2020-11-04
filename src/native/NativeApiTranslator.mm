@@ -4,6 +4,11 @@
 #include <iostream>
 #include "data.h"
 
+/**
+* Retrieve the current version of the Operating System.
+* \return OSVersion object containing major, minor and patch version of the OS if the current version is 10.10+,
+*         otherwise return empty object.
+**/
 OSVersion getProcessInfoVersion_C(void) {
     NSProcessInfo *processInfo = [[NSProcessInfo alloc] init];
 
