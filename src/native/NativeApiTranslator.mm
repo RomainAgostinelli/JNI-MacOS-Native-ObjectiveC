@@ -8,7 +8,7 @@ OSVersion getProcessInfoVersion_C(void) {
     NSProcessInfo *processInfo = [[NSProcessInfo alloc] init];
 
     OSVersion version;
-    // check avaiability of the property operatingSystemVersion (10.10+) at runtime
+    // check availability of the property operatingSystemVersion (10.10+) at runtime
     if ([processInfo respondsToSelector:@selector(operatingSystemVersion)]) {
         NSOperatingSystemVersion versionObj = [processInfo operatingSystemVersion];
 
