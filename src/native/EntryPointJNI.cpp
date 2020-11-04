@@ -20,7 +20,7 @@ JNIEXPORT jobject JNICALL Java_OSApiAdapter_getOsVersion
         (JNIEnv *env, jobject thisObject) 	{
     jclass cls = env->FindClass("OperatingSystemVersion");
     if(NULL == cls)
-    printf("Cannot find the class");
+        printf("Cannot find the class");
 
     jmethodID cid = env->GetMethodID(cls, "<init>", "(III)V");
     if(NULL == cid)
