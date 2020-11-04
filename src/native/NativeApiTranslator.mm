@@ -1,3 +1,10 @@
+/**
+ * This file is used to call the native libraries of MacOsX.
+ * \file NativeApiTranslator.mm
+ * \author Romain Agostinelli
+ * \date 02.11.2020
+**/
+
 #import <Foundation/Foundation.h>
 #import <Foundation/NSProcessInfo.h>
 #include <string.h>
