@@ -7,5 +7,5 @@ public class OSApiAdapter {
      * Declaration of the native function implemented in ./native/EntryPointJNI.cpp
      * @return Object OperatingSystemVersion containing the current OS version.
      */
-    public native OperatingSystemVersion getOsVersion();
+    public native OperatingSystemVersion getOsVersion() throws NativeException;
 }

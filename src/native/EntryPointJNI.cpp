@@ -12,6 +12,19 @@
 #include <iostream>
 
 
+static bool exceptionHandler(JNIEnv * env, std::string text) {
+    jboolean flag = env->ExceptionCheck();
+    bool res = false;
+    if (flag) {
+        std::cout<<"Exception detected in Native Code"<<std::endl;
+        env->ExceptionClear(); // Clear exceptions
+        jclass jcls = env->FindClass("NativeException");
+        env->ThrowNew(jcls, text.c_str());
+        res = true;
+    }
+    return res;
+}
+
 /**
 * Implementation of: OSApiAdapter::getOsVersion.
 * \return jobject, OperatingSystemVersion java object.
@@ -19,12 +32,10 @@
 JNIEXPORT jobject JNICALL Java_OSApiAdapter_getOsVersion
         (JNIEnv *env, jobject thisObject) 	{
     jclass cls = env->FindClass("OperatingSystemVersion");
-    if(NULL == cls)
-        printf("Cannot find the class");
+    if(exceptionHandler(env, "Cannot find the class OperatingSystemVersion")) return NULL;
 
     jmethodID cid = env->GetMethodID(cls, "<init>", "(III)V");
-    if(NULL == cid)
-        printf("Cannot find constructor");
+    if(exceptionHandler(env, "Cannot find the constructor of OperatingSystemVersion")) return NULL;
 
     MacOSNativeApiAdapter pi;
     OSVersion version = pi.getVersion();
